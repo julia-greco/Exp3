@@ -257,11 +257,18 @@ Template("treino.csv",
     .log("Group", variable.Group)
     .log("Item", variable.Item)
     )
-    
+      newText("A",variable.OptionA)
+     .css("font-size","2.5em")
+     .print()
+        ,
+        newText("B",variable.OptionB)
+       .css("font-size","2.5em")
+       .print()
+            ,
      
         //newKey("AB")
         newSelector()
-            .add( getImage("A") , getImage("B") )
+            .add( getOption("A") , getOption("B") )
             .keys(          "Z"    ,          "M"   )
             .log()
             .wait()
