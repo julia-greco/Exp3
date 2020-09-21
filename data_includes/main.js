@@ -117,9 +117,9 @@ defaultText
         ,
         newText("<p>INSTRU&Ccedil;&Otilde;ES:</p>")
         ,
-        newText("<p> Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ver as duas imagens <strong>A</strong> e <strong>B</strong>.</p>")
+        newText("<p> Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ver a frase seguinte <strong>A</strong> e <strong>B</strong>.</p>")
         ,
-        newText("<p>Clique em cima da imagem que voc&ecirc  acha que &eacute; a melhor de acordo com a frase que voc&ecirc; leu.</p>")
+        newText("<p>Leia a frase com  aten&ccedil;&atilde;e clique no bot&atilde;o &quot;Pr&oacute;ximo&quot;  </p>")
         ,
         newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar</p>")
         ,
@@ -214,20 +214,50 @@ Template("treino.csv",
             ,
     getText("frase")
     .remove()
-    ,
-  newImage("A",variable.ImageFileA)
-            .size(200,200)
-            //.print
-        ,
-        newImage("B",variable.ImageFileB)
-            .size(200,200)
-            //.print 
+    newText("frase", variable.Frase1)
+ .css("font-size","2.5em")
+ .print()
+ ,
+ newButton("Pr&oacute;ximo")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
             ,
-    newCanvas(1200, 600)
-    .add(250, 150, getImage("A"))
-    .add(850, 150, getImage("B"))
-    .print()
-        ,
+    getText("frase1")
+    .remove()
+    ,
+    
+  newText("frase", variable. Frase2)
+ .css("font-size","2.5em")
+ .print()
+ ,
+ newButton("Pr&oacute;ximo")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
+            ,
+    getText("frase2")
+    .remove()
+    ,
+      newText("pergunta", variable.pergunta)
+        //newKey("AB")
+        newSelector()
+            .add( getOption("A") , getOption("B") )
+            .keys(          "Z"    ,          "M"   )
+            .log()
+            .wait()
+            )
+
+    .log("Group", variable.Group)
+    .log("Item", variable.Item)
+    )
+    
      
         //newKey("AB")
         newSelector()
