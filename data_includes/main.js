@@ -1,75 +1,253 @@
-// This is a simple demo script, feel free to edit or delete it
-// Find a tutorial and the list of availalbe elements at:
-// https://www.pcibex.net/documentation/
+PennController.ResetPrefix(null); 
+PennController.DebugOff();
 
-PennController.ResetPrefix(null) // Shorten command names (keep this line here)
+Sequence ("welcome","tela1","tela2", "treino", "tela3" , randomize("experiment"),SendResults(), "final");
 
-// Show the 'intro' trial first, then all the 'experiment' trials in a random order
-// then send the results and finally show the trial labeled 'bye'
-Sequence( "intro", randomize("experiment") , SendResults() , "bye" )
-
-
-// What is in Header happens at the beginning of every single trial
-Header(
-    // We will use this global Var element later to store the participant's name
-    newVar("ParticipantName")
-        .global()
+newTrial("welcome",
+    defaultText
+    .css("font-size","1.2em")
+    .print()
     ,
-    // Delay of 250ms before every trial
-    newTimer(250)
-        .start()
+    newText("<p>Bem-vindx!</p>")
+    ,
+    newText("<p>Neste experimento, voc&ecirc; vai ler uma frase, ela deve ser lida rapidamente e com aten&ccedil&atildeo. Depois  voc&ecirc deve escolher a melhor op&ccedil;&atildeo de imagem para ela.</p>")
+    ,
+    
+    newText("<p>Por favor, escreva seu NOME COMPLETO na caixa abaixo.</p>")
+    ,
+    newTextInput("Nome")
+    .css("font-size","1.2em")
+    .print()
+    ,
+    newText("<p>Por favor, escreva seu E-MAIL na caixa abaixo.</p>")
+
+ ,
+    newTextInput("Email")
+    .css("font-size","1.2em")
+    .print()
+    ,
+    newText("<p>Escreva sua IDADE na caixa abaixo.</p>")
+    .css("font-size","1.2em")
+    .print()
+    ,
+    newTextInput("Idade")
+    .css("font-size","1.2em")
+    .print()
+    ,
+    newText("<p>Por favor, escreva seu CURSO na caixa abaixo.</p>")
+    ,
+     newTextInput("Curso")
+    .css("font-size","1.2em")
+    .print()
+    ,
+     newText("<p>Por favor, escreva seu DRE na caixa abaixo.</p>")
+     ,
+      newTextInput("DRE")
+    .css("font-size","1.2em")
+    .print()
+     ,
+    newText("<p>Agora selecione sua ESCOLARIDADE na caixa abaixo e aperte &quot;Start&quot; para come&ccedil;ar!</p>")
+    .css("font-size","1.2em")
+    .print()
+    ,
+    newDropDown("Escolaridade", "Selecione sua escolaridade")
+        .add("M&eacute;dio completo", "Superior em curso", "Superior completo", "P&oacute;s-gradua&ccedil;&atilde;o")
+        .css("font-size","1.2em")
+        .print()
+        .log()
+    ,
+    
+    newButton("Start")
+    .css("font-size","1.2em")
+        .print()
         .wait()
-)
-.log( "Name" , getVar("ParticipantName") )
-// This log command adds a column reporting the participant's name to every line saved to the results
-
-
-newTrial( "intro" ,
-    newImage("pcibex-logo.png")
-        .size( 150 , 200 )      // Resize the image to 150x250px
-        .print()
     ,
-    newText("<p>Welcome to the PCIbex demo experiment.</p><p>Please enter your name below and press Enter:</p>")
-        .print()
+    newVar("ID")
+        .global()
+        .set( getTextInput("Nome") )
     ,
-    newTextInput()
-        .print()
-        .wait()                 // The next command won't be executed until Enter is pressed
-        .setVar( "ParticipantName" )
-        // This setVar command stores the value from the TextInput element into the Var element
-)
-
-
-// This Template command generates as many trials as there are rows in myTable.csv
-Template( "myTable.csv" ,
-    // Row will iteratively point to every row in myTable.csv
-    row => newTrial( "experiment" ,
-        // The trials are minimal: choose a pronoun from a DropDown list
-        newDropDown("pronoun", "...")
-            .before( newText(row.Sentence) )    // Print the sentence to the left of the list
-            .add( row.Pronoun1 )
-            .add( row.Pronoun2 )
-            .shuffle()                          // Randomly order the options in the list (Pronoun1 and Pronoun2)
-            .once()                             // Disable the list after the first selection
-            .print()
-            .wait()
-            .log()                              // Make sure to log the participant's selection
+    newVar("EMAIL")
+        .global()
+        .set( getTextInput("Email") )
+    ,
+    newVar("AGE")
+        .global()
+        .set( getTextInput("Idade") )
         ,
-        newButton("Next")
+    newVar("CURSO")
+        .global()
+        .set( getTextInput("Curso") )
+    ,
+    newVar("DRE")
+        .global()
+        .set( getTextInput("DRE") )
+       ) 
+    .log( "ID" , getVar("ID") )
+    .log( "EMAIL" , getVar("EMAIL") )
+    .log( "AGE" , getVar("AGE") )
+    .log( "CURSO" , getVar("CURSO") )
+    .log( "DRE" , getVar("DRE") )
+    
+newTrial("tela1",
+defaultText
+    .css("font-size","1.2em")
+    .print()
+    
+,
+newText("Termo de Consentimento Livre e Esclarecido </p>"),
+newText("Esta pesquisa est&aacute sendo desenvolvida pela aluna do curso de mestrado em Lingu&iacutestica da UFRJ Graziele Soares, sob a orienta&ccedil&atildeo do professor Marcus Maia.</p> A finalidade deste trabalho &eacute contribuir com a ci&ecircncia.</p> Solicitamos sua autoriza&ccedil&atildeo para utilizar seus dados em eventos da &aacuterea e publica&ccedil&otildees posteriores.</p> Basta voc&ecirc escrever EU CONCORDO na caixa de texto abaixo. "),
+newTextInput("tcle")
+.css("font-size","1.2em")
+    .print()
+    .log()
+,
+ newButton("Start")
+    .css("font-size","1.2em")
+        .print()
+        .wait()
+        )
+
+newTrial("tela2",
+defaultText
+    .css("font-size","1.2em")
+    .print()
+    .log
+    ,
+     newText("<p>Vamos realizar um pequeno treino para voc&ecirc; se familiarizar com o experimento.</p>")
+        ,
+        newText("<p>INSTRU&Ccedil;&Otilde;ES:</p>")
+        ,
+        newText("<p> Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ver as duas imagens <strong>A</strong> e <strong>B</strong>.</p>")
+        ,
+        newText("<p>Clique em cima da imagem que voc&ecirc  acha que &eacute; a melhor de acordo com a frase que voc&ecirc; leu.</p>")
+        ,
+        newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar</p>")
+        ,
+         newButton("Iniciar")
+            .css("font-size","1.2em")
             .print()
+            .center()
+            .log()
             .wait()
+            )
+Template("treino.csv",
+ 
+ variable => newTrial("treino",
+
+ newText("frase", variable.Frase1)
+ .css("font-size","2.5em")
+ .print()
+ ,
+ newButton("Pr&oacute;ximo")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
+            ,
+    getText("frase1")
+    .remove()
+    ,
+    
+  newText("frase", variable. Frase2)
+ .css("font-size","2.5em")
+ .print()
+ ,
+ newButton("Pr&oacute;ximo")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
+            ,
+    getText("frase2")
+    .remove()
+    ,
+      newText("pergunta", variable.pergunta)
+        //newKey("AB")
+        newSelector()
+            .add( getOption("A") , getOption("B") )
+            .keys(          "Z"    ,          "M"   )
+            .log()
+            .wait()
+            )
+
+    .log("Group", variable.Group)
+    .log("Item", variable.Item)
     )
-    .log( "Sentence" , row.Sentence )
-    .log( "Pronoun1" , row.Pronoun1 )
-    .log( "Pronoun2" , row.Pronoun2 )
-    // Add these three columns to the results lines of these Template-based trials
-)
+    
+    
+    
+    newTrial("tela3",
+    defaultText
+    .css("font-size","1.2em")
+    .print()
+    ,
+       newText("<p>Agora que voc&ecirc j&aacute; praticou, vamos iniciar o experimento. </p>")
+        ,
+        newText("<p>Clique em &quot;Iniciar&quot; quando estiver pronto para come&ccedil;ar.</p>")
+        ,
+        newButton("Iniciar")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            )
+    Template("myTable.csv",
+    variable => newTrial("experiment"
+    ,
+           newText("frase", variable.Frase)
+ .css("font-size","2.5em")
+ .print()
+ ,
+ 
+ newButton("Pr&oacute;ximo")
+            .css("font-size","1.2em")
+            .print()
+            .center()
+            .log()
+            .wait()
+            .remove()
+            ,
+    getText("frase")
+    .remove()
+    ,
+  newImage("A",variable.ImageFileA)
+            .size(200,200)
+            //.print
+        ,
+        newImage("B",variable.ImageFileB)
+            .size(200,200)
+            //.print 
+            ,
+    newCanvas(1200, 600)
+    .add(250, 150, getImage("A"))
+    .add(850, 150, getImage("B"))
+    .print()
+        ,
+     
+        //newKey("AB")
+        newSelector()
+            .add( getImage("A") , getImage("B") )
+            .keys(          "Z"    ,          "M"   )
+            .log()
+            .wait()
+            )
 
+    .log("Group", variable.Group)
+    .log("Item", variable.Item)
+    )
+        
+ newTrial("final"
+ ,
+    newText ("<p> Obrigada pela participa&ccedil;&atilde;o!</p>")
+    .css("font-size","1.2em")
+        .print()
+        .wait()
+        )
+        .setOption("countsForProgressBar",false);
+        
 
-// Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
-newTrial( "bye" ,
-    newText("Thank you for your participation!").print(),
-    newButton().wait()  // Wait for a click on a non-displayed button = wait here forever
-)
-.setOption( "countsForProgressBar" , false )
-// Make sure the progress bar is full upon reaching this last (non-)trial
