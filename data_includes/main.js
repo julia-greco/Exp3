@@ -1,5 +1,5 @@
 PennController.ResetPrefix(null); 
-PennController.DebugOff();
+//PennController.DebugOff();
 
 Sequence ("welcome","tela1","tela2", "treino", "tela3" , randomize("experimento"),SendResults(), "final");
 
