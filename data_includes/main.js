@@ -81,18 +81,17 @@ newTrial("welcome",
     newVar("DRE")
         .global()
         .set( getTextInput("DRE") )
-     
+     )
     .log( "ID" , getVar("ID") )
     .log( "EMAIL" , getVar("EMAIL") )
     .log( "AGE" , getVar("AGE") )
     .log( "CURSO" , getVar("CURSO") )
     .log( "DRE" , getVar("DRE") )
-) 
+ 
 newTrial("tela1",
 defaultText
     .css("font-size","1.2em")
-    .print()
-    
+    .print()  
 ,
 newText("Termo de Consentimento Livre e Esclarecido </p>"),
 newText("Esta pesquisa est&aacute sendo desenvolvida pela aluna do curso de mestrado em Lingu&iacutestica da UFRJ Graziele Soares, sob a orienta&ccedil&atildeo do professor Marcus Maia.</p> A finalidade deste trabalho &eacute contribuir com a ci&ecircncia.</p> Solicitamos sua autoriza&ccedil&atildeo para utilizar seus dados em eventos da &aacuterea e publica&ccedil&otildees posteriores.</p> Basta voc&ecirc escrever EU CONCORDO na caixa de texto abaixo. "),
@@ -117,10 +116,9 @@ defaultText
         ,
         newText("<p>INSTRU&Ccedil;&Otilde;ES:</p>")
         ,
-        newText (Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ler a pr&oacute;xima frase .</p>")
+        newText ("Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ler a pr&oacute;xima frase .</p>")
         ,
         newText("<p>Clique  novamente no bot&atilde;o &quot;Pr&oacute;ximo&quot e responda a pergunta, clicando em uma das quatro alternativas na tela (A,B,C,D).</p>")
-        ,
         ,
         newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar</p>")
         ,
@@ -150,8 +148,7 @@ Template("treino.csv",
     getText("frase1")
     .remove()
     ,
-    
-  newText("Frase", variable. Frase2)
+  newText("Frase2", variable. Frase2)
  .css("font-size","2.5em")
  .print()
  ,
@@ -177,7 +174,7 @@ Template("treino.csv",
 
     .log("Group", variable.Group)
     .log("Item", variable.Item)
-    )
+ 
     newTrial("tela3",
     defaultText
     .css("font-size","1.2em")
@@ -197,11 +194,10 @@ Template("treino.csv",
     Template("experimento.csv",
     variable => newTrial("experimento"
     ,
-           newText("Frase1", variable.Frase1)
+ newText("Frase1", variable.Frase1)
  .css("font-size","2.5em")
  .print()
  ,
- 
  newButton("Pr&oacute;ximo")
             .css("font-size","1.2em")
             .print()
@@ -212,7 +208,7 @@ Template("treino.csv",
             ,
     getText("Frase1")
     .remove()
-                         
+    ,                     
     newText("Frase2", variable.Frase2)
  .css("font-size","2.5em")
  .print()
@@ -235,11 +231,7 @@ Template("treino.csv",
             .keys(          "Z"    ,          "M" ,          "C" ,     "B"  )
             .log()
             .wait()
-            )
-
-    .log("Group", variable.Group)
-    .log("Item", variable.Item)
-    )
+         ,
       newText("A",variable.AlternativaA)
      .css("font-size","2.5em")
      .print()
@@ -255,10 +247,10 @@ Template("treino.csv",
           newText("D",variable.AlternativaD)
        .css("font-size","2.5em")
        .print()
-
+)
     .log("Group", variable.Group)
     .log("Item", variable.Item)
-    )
+ 
         
  newTrial("final"
  ,
