@@ -1,7 +1,7 @@
 PennController.ResetPrefix(null); 
 PennController.DebugOff();
 
-Sequence ("welcome","tela1","tela2", "treino", "tela3" , randomize("experiment"),SendResults(), "final");
+Sequence ("welcome","tela1","tela2", "treino", "tela3" , randomize("experimento"),SendResults(), "final");
 
 newTrial("welcome",
     defaultText
