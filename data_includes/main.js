@@ -12,7 +12,6 @@ newTrial("welcome",
     ,
     newText("<p>Neste experimento, voc&ecirc; vai ler uma frase, ela deve ser lida rapidamente e com aten&ccedil&atildeo. Depois  voc&ecirc deve escolher a melhor op&ccedil;&atildeo de imagem para ela.</p>")
     ,
-    
     newText("<p>Por favor, escreva seu NOME COMPLETO na caixa abaixo.</p>")
     ,
     newTextInput("Nome")
@@ -20,8 +19,7 @@ newTrial("welcome",
     .print()
     ,
     newText("<p>Por favor, escreva seu E-MAIL na caixa abaixo.</p>")
-
- ,
+    ,
     newTextInput("Email")
     .css("font-size","1.2em")
     .print()
@@ -39,10 +37,10 @@ newTrial("welcome",
      newTextInput("Curso")
     .css("font-size","1.2em")
     .print()
-    ,
+     ,
      newText("<p>Por favor, escreva seu DRE na caixa abaixo.</p>")
      ,
-      newTextInput("DRE")
+     newTextInput("DRE")
     .css("font-size","1.2em")
     .print()
      ,
@@ -56,7 +54,6 @@ newTrial("welcome",
         .print()
         .log()
     ,
-    
     newButton("Start")
     .css("font-size","1.2em")
         .print()
@@ -250,6 +247,7 @@ Template("treino.csv",
 )
     .log("Group", variable.Group)
     .log("Item", variable.Item)
+    
  
         
  newTrial("final"
