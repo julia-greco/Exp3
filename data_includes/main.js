@@ -134,7 +134,7 @@ Template("treino.csv",
  
  variable => newTrial("treino",
 
- newText("frase", variable.Frase1)
+ newText("Frase1", variable.Frase1)
  .css("font-size","2.5em")
  .print()
  ,
@@ -166,10 +166,10 @@ Template("treino.csv",
     .remove()
     ,
       newText("pergunta", variable.pergunta)
-        //newKey("AB")
+        //newKey("ABCD")
         newSelector()
-            .add( getOption("A") , getOption("B") )
-            .keys(          "Z"    ,          "M"   )
+            .add( getOption("A") , getOption("B") , getOption("C") , getOption("D")  )
+            .keys(          "Z"    ,          "M" , "C" , "B"  )
             .log()
             .wait()
             )
@@ -196,10 +196,10 @@ Template("treino.csv",
             .log()
             .wait()
             )
-    Template("myTable.csv",
-    variable => newTrial("experiment"
+    Template("experimento.csv",
+    variable => newTrial("experimento"
     ,
-           newText("frase", variable.Frase)
+           newText("Frase", variable.Frase1)
  .css("font-size","2.5em")
  .print()
  ,
@@ -212,9 +212,10 @@ Template("treino.csv",
             .wait()
             .remove()
             ,
-    getText("frase")
+    getText("Frase2")
     .remove()
-    newText("frase", variable.Frase1)
+                         
+    newText("Frase", variable.Frase2)
  .css("font-size","2.5em")
  .print()
  ,
@@ -226,30 +227,14 @@ Template("treino.csv",
             .wait()
             .remove()
             ,
-    getText("frase1")
+    getText("Frase2")
     .remove()
     ,
-    
-  newText("frase", variable. Frase2)
- .css("font-size","2.5em")
- .print()
- ,
- newButton("Pr&oacute;ximo")
-            .css("font-size","1.2em")
-            .print()
-            .center()
-            .log()
-            .wait()
-            .remove()
-            ,
-    getText("frase2")
-    .remove()
-    ,
-      newText("pergunta", variable.pergunta)
-        //newKey("AB")
+  newText("pergunta", variable.pergunta)
+        //newKey("ABCD")
         newSelector()
-            .add( getOption("A") , getOption("B") )
-            .keys(          "Z"    ,          "M"   )
+            .add( getOption("A") , getOption("B") , getOption("C") , getOption("D")  )
+            .keys(          "Z"    ,          "M" , "C" , "B"  )
             .log()
             .wait()
             )
@@ -257,22 +242,21 @@ Template("treino.csv",
     .log("Group", variable.Group)
     .log("Item", variable.Item)
     )
-      newText("A",variable.OptionA)
+      newText("A",variable.AlternativaA)
      .css("font-size","2.5em")
      .print()
         ,
-        newText("B",variable.OptionB)
+        newText("B",variable.AlternativaB)
        .css("font-size","2.5em")
        .print()
             ,
-     
-        //newKey("AB")
-        newSelector()
-            .add( getOption("A") , getOption("B") )
-            .keys(          "Z"    ,          "M"   )
-            .log()
-            .wait()
-            )
+     newText("C",variable.AlternativaC)
+       .css("font-size","2.5em")
+       .print()
+,
+          newText("D",variable.AlternativaD)
+       .css("font-size","2.5em")
+       .print()
 
     .log("Group", variable.Group)
     .log("Item", variable.Item)
