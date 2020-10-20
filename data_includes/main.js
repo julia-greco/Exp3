@@ -117,9 +117,9 @@ defaultText
         ,
         newText("<p>INSTRU&Ccedil;&Otilde;ES:</p>")
         ,
-        newText (Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ler a Pr&oacute;xima frase <strong>A</strong> e <strong>B</strong>.</p>")
+        newText (Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ler a pr&oacute;xima frase .</p>")
         ,
-        newText("<p>Clique  novamente no ot&atilde;o &quot;Pr&oacute;ximo&quot e responda a pergunta, clicando em uma das quatro alternativas na tela (A,B,C,D).</p>")
+        newText("<p>Clique  novamente no bot&atilde;o &quot;Pr&oacute;ximo&quot e responda a pergunta, clicando em uma das quatro alternativas na tela (A,B,C,D).</p>")
         ,
         ,
         newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar</p>")
@@ -151,7 +151,7 @@ Template("treino.csv",
     .remove()
     ,
     
-  newText("frase", variable. Frase2)
+  newText("Frase", variable. Frase2)
  .css("font-size","2.5em")
  .print()
  ,
@@ -163,10 +163,10 @@ Template("treino.csv",
             .wait()
             .remove()
             ,
-    getText("frase2")
+    getText("Frase2")
     .remove()
     ,
-      newText("pergunta", variable.pergunta)
+      newText("Pergunta", variable.Pergunta)
         //newKey("ABCD")
         newSelector()
             .add( getOption("A") , getOption("B") , getOption("C") , getOption("D")  )
@@ -197,7 +197,7 @@ Template("treino.csv",
     Template("experimento.csv",
     variable => newTrial("experimento"
     ,
-           newText("Frase", variable.Frase1)
+           newText("Frase1", variable.Frase1)
  .css("font-size","2.5em")
  .print()
  ,
@@ -213,7 +213,7 @@ Template("treino.csv",
     getText("Frase1")
     .remove()
                          
-    newText("Frase", variable.Frase2)
+    newText("Frase2", variable.Frase2)
  .css("font-size","2.5em")
  .print()
  ,
@@ -232,7 +232,7 @@ Template("treino.csv",
         //newKey("ABCD")
         newSelector()
             .add( getOption("A") , getOption("B") , getOption("C") , getOption("D")  )
-            .keys(          "Z"    ,          "M" , "C" , "B"  )
+            .keys(          "Z"    ,          "M" ,          "C" ,     "B"  )
             .log()
             .wait()
             )
