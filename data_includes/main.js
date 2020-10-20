@@ -169,7 +169,7 @@ Template("treino.csv",
         //newKey("ABCD")
         newSelector()
             .add( getOption("A") , getOption("B") , getOption("C") , getOption("D")  )
-            .keys(          "Z"    ,          "M" , "C" , "B"  )
+            .keys(          "Z"    ,          "M" ,       "C" , "       B"  )
             .log()
             .wait()
             )
@@ -177,9 +177,6 @@ Template("treino.csv",
     .log("Group", variable.Group)
     .log("Item", variable.Item)
     )
-    
-    
-    
     newTrial("tela3",
     defaultText
     .css("font-size","1.2em")
@@ -212,7 +209,7 @@ Template("treino.csv",
             .wait()
             .remove()
             ,
-    getText("Frase2")
+    getText("Frase1")
     .remove()
                          
     newText("Frase", variable.Frase2)
