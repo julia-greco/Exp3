@@ -81,13 +81,13 @@ newTrial("welcome",
     newVar("DRE")
         .global()
         .set( getTextInput("DRE") )
-       ) 
+     
     .log( "ID" , getVar("ID") )
     .log( "EMAIL" , getVar("EMAIL") )
     .log( "AGE" , getVar("AGE") )
     .log( "CURSO" , getVar("CURSO") )
     .log( "DRE" , getVar("DRE") )
-    
+) 
 newTrial("tela1",
 defaultText
     .css("font-size","1.2em")
