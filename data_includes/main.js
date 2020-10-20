@@ -117,9 +117,10 @@ defaultText
         ,
         newText("<p>INSTRU&Ccedil;&Otilde;ES:</p>")
         ,
-        newText("<p> Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ver a frase seguinte <strong>A</strong> e <strong>B</strong>.</p>")
+        newText (Leia a frase com aten&ccedil;&atilde;o e depois clique no bot&atilde;o &quot;Pr&oacute;ximo&quot; para ler a Pr&oacute;xima frase <strong>A</strong> e <strong>B</strong>.</p>")
         ,
-        newText("<p>Leia a frase com  aten&ccedil;&atilde;e clique no bot&atilde;o &quot;Pr&oacute;ximo&quot;  </p>")
+        newText("<p>Clique  novamente no ot&atilde;o &quot;Pr&oacute;ximo&quot e responda a pergunta, clicando em uma das quatro alternativas na tela (A,B,C,D).</p>")
+        ,
         ,
         newText("<p>Aperte &quot;Iniciar&quot; para come&ccedil;ar</p>")
         ,
